@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+        string isbnS = Console.ReadLine();
+        if (isbnS.Length != 10)
+        {
+            Console.WriteLine("Illegal ISBN");
+            return;
+        }
+        int sum=0;
+
+        for (int x=1;x<11;x++)
+        {
+            string a = isbnS.Substring(x-1,1);
+            sum=sum+x*Convert.ToInt32(a);
+        }
+
+        if (sum % 11 ==0)
+        {
+            Console.WriteLine("Legal ISBN");
+        }
+        else
+        {
+            Console.WriteLine("Illegal ISBN");
+        }
+
+    }
+  }
+}
